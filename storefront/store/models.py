@@ -23,7 +23,7 @@ class Product(models.Model):
     promotions = models.ManyToManyField(Promotion)
     
 class Customer(models.Model):
-    first_name = models.CharField(max_length=255)
+    given_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
@@ -37,6 +37,7 @@ class Customer(models.Model):
     (MEMBERSHIP_GOLD, 'Gold'),
     ]
     membership = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE)
+
     
 class Order(models.Model):
     placed_at = models.DateTimeField(auto_now_add=True)
